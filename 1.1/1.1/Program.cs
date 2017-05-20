@@ -40,10 +40,10 @@ namespace _1._1
                             t++;
                     }
                 }
-                if(t>0)
-                    Console.WriteLine(p.Name + ':' + "no");
+                if(t>1)
+                    Console.WriteLine(p.Name + ':' + "yes");
                     else
-                    Console.WriteLine(p.Name+':'+"yes");
+                    Console.WriteLine(p.Name+':'+"no");
             }
 
 
