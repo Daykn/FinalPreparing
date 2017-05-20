@@ -16,6 +16,8 @@ namespace _4
         public SolidBrush br;
         public Bitmap bmp;
         public Graphics gb;
+        public float y, x=-12;
+        public bool d = true;
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +25,6 @@ namespace _4
             bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             gb = Graphics.FromImage(bmp);
             br = new SolidBrush(Color.Purple);
-            timer1.Start();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -33,19 +34,28 @@ namespace _4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            if (d)
+            {
+                pictureBox1.Refresh();
+                g.FillEllipse(br, x - 10, y - 10, 20, 20);
+                y += 10;
+            }
+            if (y > pictureBox1.Height+10)
+                d = false;
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            gb.FillEllipse(br, e.X,e.Y, 20, 20);
-            pictureBox1.Image = bmp;
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            gb.FillEllipse(br, e.X-10, e.Y-10, 20, 20);
-            pictureBox1.Image = bmp;
+            d = true;
+            x=e.X;
+            y = e.Y;
+            gb.FillEllipse(br, x-10, y-10, 20, 20);
+            //pictureBox1.Image = bmp;
+            timer1.Start();
         }
     }
 }
