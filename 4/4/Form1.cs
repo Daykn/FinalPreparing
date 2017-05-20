@@ -12,6 +12,7 @@ namespace _4
 {
     public partial class Form1 : Form
     {
+        public int r=0;
         public Graphics g;
         public SolidBrush br;
         public Bitmap bmp;
@@ -34,28 +35,45 @@ namespace _4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (d)
-            {
                 pictureBox1.Refresh();
                 g.FillEllipse(br, x - 10, y - 10, 20, 20);
                 y += 10;
-            }
-            if (y > pictureBox1.Height+10)
-                d = false;
+            if (y > pictureBox1.Height + 10)
+                timer1.Stop();
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            pictureBox1.Refresh();
+            g.FillEllipse(br, x - 10, y - 10, 20, 20);
+            y += 10;
+            if (y > pictureBox1.Height + 5)
+                timer2.Stop();
+        }
+
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            d = true;
-            x=e.X;
-            y = e.Y;
-            gb.FillEllipse(br, x-10, y-10, 20, 20);
-            //pictureBox1.Image = bmp;
-            timer1.Start();
+            r++;
+            if (r == 3)
+                r = 1;
+            if (r == 1)
+            {
+                x = e.X;
+                y = e.Y;
+                gb.FillEllipse(br, x - 10, y - 10, 20, 20);
+                timer1.Start();
+            }
+            if (r == 2)
+            {
+                x = e.X;
+                y = e.Y;
+                gb.FillEllipse(br, x - 10, y - 10, 20, 20);
+                timer2.Start();
+            }
         }
     }
 }
