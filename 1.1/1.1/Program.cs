@@ -8,6 +8,7 @@ namespace _1._1
 {
     class Program
     {
+        public static int t = 0;
         public static bool came = false;
         static void Main(string[] args)
         {
@@ -33,18 +34,16 @@ namespace _1._1
                 }
                 for(int k=0;k<a.Count;k++)
                 {
-                    came = false;
                     for (int u = 0; u < b.Count; u++)
                     {
                         if (a[k] == b[u])
-                            came = true;
+                            t++;
                     }
-
-                }
-                if(came)
-                    Console.WriteLine(p.Name + ':' + "no");
+                    if (t > 0)
+                        Console.WriteLine(p.Name + ':' + "no");
                     else
-                    Console.WriteLine(p.Name+':'+"yes");
+                        Console.WriteLine(p.Name + ':' + "yes");
+                }
             }
 
 
