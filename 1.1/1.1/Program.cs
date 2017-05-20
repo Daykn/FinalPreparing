@@ -40,6 +40,7 @@ namespace _1._1
                             t++;
                     }
                 }
+                
                 if(t>1)
                     Console.WriteLine(p.Name + ':' + "yes");
                     else
