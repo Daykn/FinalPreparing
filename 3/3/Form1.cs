@@ -18,24 +18,20 @@ namespace _3
         }
 
 
-        static int n;
+        static int n=1;
         private void button1_Click(object sender, EventArgs e)
         {
-            n = 2;
+            n++;
             if (n == 1)
-            {
-                button1.BackColor = Color.Yellow;
-                n = 2;
-            }
-            if (n == 2)
-            {
-                button1.BackColor = Color.Blue;
-                n = 3;
-            }
-            if (n == 3)
-            {
                 button1.BackColor = Color.Red;
+            if (n == 2)
+                button1.BackColor = Color.Yellow;
+            if (n == 3)
+                button1.BackColor = Color.Blue;
+            if (n > 3)
+            {
                 n = 1;
+                button1.BackColor = Color.Red;
             }
         }
         
