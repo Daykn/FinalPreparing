@@ -8,8 +8,6 @@ namespace _1._1
 {
     class Program
     {
-        public static List<int> a;
-        public static List<int> b;
         public static bool came = false;
         static void Main(string[] args)
         {
@@ -18,8 +16,10 @@ namespace _1._1
             fil.AddRange(dir.GetFiles());
             foreach(FileInfo p in fil)
             {
+                List<int> a=new List<int>();
+                List<int> b=new List<int>();
                 StreamReader sr = new StreamReader(p.FullName);
-                string str = sr.ReadLine();
+                string str = sr.ReadToEnd();
                 string[] arr = str.Split();
                 for (int i = 2; i <= int.Parse(arr[0]); i++)
                 {
@@ -33,18 +33,16 @@ namespace _1._1
                 }
                 foreach(int z in a)
                 {
-                    for(int u = 0; u <= b.Count; u++)
+                    for(int u = 0; u < b.Count; u++)
                     {
                         if (z == b[u])
-                        {
                             came = true;
-                        }
-                        }
+                    }
                 }
                 if(came)
-                    Console.WriteLine(p.Name + ':' + "yes");
+                    Console.WriteLine(p.Name + ':' + "no");
                     else
-                    Console.WriteLine(p.Name+':'+"no");
+                    Console.WriteLine(p.Name+':'+"yes");
             }
 
 
