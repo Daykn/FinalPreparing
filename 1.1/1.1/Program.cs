@@ -21,23 +21,25 @@ namespace _1._1
                 StreamReader sr = new StreamReader(p.FullName);
                 string str = sr.ReadToEnd();
                 string[] arr = str.Split();
-                for (int i = 2; i <= int.Parse(arr[0]); i++)
+                for (int i = 2; i < Math.Min(int.Parse(arr[0]), int.Parse(arr[1])); i++)
                 {
                     if (int.Parse(arr[0]) % i == 0)
                         a.Add(i);
                 }
-                for(int j = 2; j <= int.Parse(arr[1]); j++)
+                for(int j = 2; j < Math.Min(int.Parse(arr[0]), int.Parse(arr[1])); j++)
                 {
                     if (int.Parse(arr[1]) % j == 0)
                         b.Add(j);
                 }
-                foreach(int z in a)
+                for(int k=0;k<a.Count;k++)
                 {
-                    for(int u = 0; u < b.Count; u++)
+                    came = false;
+                    for (int u = 0; u < b.Count; u++)
                     {
-                        if (z == b[u])
+                        if (a[k] == b[u])
                             came = true;
                     }
+
                 }
                 if(came)
                     Console.WriteLine(p.Name + ':' + "no");
