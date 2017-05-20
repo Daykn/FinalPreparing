@@ -39,11 +39,11 @@ namespace _1._1
                         if (a[k] == b[u])
                             t++;
                     }
-                    if (t > 0)
-                        Console.WriteLine(p.Name + ':' + "no");
-                    else
-                        Console.WriteLine(p.Name + ':' + "yes");
                 }
+                if(t>0)
+                    Console.WriteLine(p.Name + ':' + "no");
+                    else
+                    Console.WriteLine(p.Name+':'+"yes");
             }
 
 

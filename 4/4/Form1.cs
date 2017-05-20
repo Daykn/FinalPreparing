@@ -26,6 +26,12 @@ namespace _4
             bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             gb = Graphics.FromImage(bmp);
             br = new SolidBrush(Color.Purple);
+            timer5.Start();
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            pictureBox1.Refresh();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -35,9 +41,9 @@ namespace _4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-                pictureBox1.Refresh();
+                //pictureBox1.Refresh();
                 g.FillEllipse(br, x - 10, y - 10, 20, 20);
-                y += 10;
+                y += 7;
             if (y > pictureBox1.Height + 10)
                 timer1.Stop();
         }
@@ -48,27 +54,27 @@ namespace _4
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            pictureBox1.Refresh();
+            //pictureBox1.Refresh();
             g.FillEllipse(br, x1 - 10, y1 - 10, 20, 20);
-            y1 += 10;
+            y1 += 7;
             if (y1 > pictureBox1.Height + 5)
                 timer2.Stop();
         }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            pictureBox1.Refresh();
+            //pictureBox1.Refresh();
             g.FillEllipse(br, x2 - 10, y2 - 10, 20, 20);
-            y2 += 10;
+            y2 += 7;
             if (y2 > pictureBox1.Height + 5)
                 timer3.Stop();
         }
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            pictureBox1.Refresh();
+            //pictureBox1.Refresh();
             g.FillEllipse(br, x3 - 10, y3 - 10, 20, 20);
-            y3 += 10;
+            y3 += 7;
             if (y3 > pictureBox1.Height + 5)
                 timer4.Stop();
         }
